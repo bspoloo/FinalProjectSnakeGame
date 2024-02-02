@@ -1,0 +1,12 @@
+
+Ÿ
+java:S1186”"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8·ïœÆÖ1
+¤
+java:S1186«"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8·ïœÆÖ1
+H
+java:S1948"+Make "snakeHead" transient or serializable.(åşÖÂ8¸ïœÆÖ1
+H
+java:S1948"+Make "snakeBody" transient or serializable.(¸È€İ8¸ïœÆÖ1
+H
+java:S1948"&Make "food" transient or serializable.(‹¼Êıÿÿÿÿ8¸ïœÆÖ1
+H	java:S106ƒ"+Replace this use of System.out by a logger.(™ˆ˜²8ÁïœÆÖ1
