@@ -17,3 +17,21 @@ Q
 !src/main/java/bspo/SnakeGame.java,0\5\051e3f92a8d30a04a167e791056bd4316f7cf5e2
 L
 src/main/java/bspo/Tile.java,9\5\9513a9435ba950023f4dba769d6b5f4dd12d94a5
+e
+5src/main/java/bspo/arrays/Interfaces/IBinaryTree.java,4\0\40beab72068f06ed9340f3c39a94754e43bfd4b1
+d
+4src/main/java/bspo/arrays/binarytree/BinaryTree.java,4\7\4758ab1032b32a335835afa17a7d689ba38c7779
+`
+0src/main/java/bspo/arrays/binarytree/BTNode.java,2\5\2542b32d1f2b195085c374c710946d89828f5fd3
+c
+3src/main/java/bspo/arrays/Interfaces/ISnakeMap.java,9\1\9125bebe78a0e4f19effee126039c90c6f65ab61
+U
+%src/main/java/bspo/RunnerFactory.java,8\2\8259c52b90acf36fdfd14cf0003037212368edcd
+a
+1src/main/java/bspo/arrays/Interfaces/IRunner.java,1\7\177d70b3cb5f50a36c39847183bc45b24a743490
+O
+src/main/java/bspo/NullMap.java,c\0\c0d042d80f83b738d427567e23223433690c39a2
+Q
+!src/main/java/bspo/SnakeMap1.java,b\c\bc2379d6cd303439cce338080a496c37040b137b
+Q
+!src/main/java/bspo/SnakeMap2.java,3\d\3d54f51af7c85ab1a7e5845dbb872ff1ab055a7b

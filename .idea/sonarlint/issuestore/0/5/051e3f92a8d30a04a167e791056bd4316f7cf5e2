@@ -1,12 +1,21 @@
 
-Ÿ
-java:S1186”"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8·ïœÆÖ1
 ¤
-java:S1186«"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8·ïœÆÖ1
+java:S1186Ò"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8úµ“´Ú1
+Ÿ
+java:S1186Ö"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8úµ“´Ú1
 H
-java:S1948"+Make "snakeHead" transient or serializable.(åşÖÂ8¸ïœÆÖ1
+java:S1948"+Make "snakeHead" transient or serializable.(åşÖÂ8ûµ“´Ú1
 H
-java:S1948"+Make "snakeBody" transient or serializable.(¸È€İ8¸ïœÆÖ1
-H
-java:S1948"&Make "food" transient or serializable.(‹¼Êıÿÿÿÿ8¸ïœÆÖ1
-H	java:S106ƒ"+Replace this use of System.out by a logger.(™ˆ˜²8ÁïœÆÖ1
+java:S1948"+Make "snakeBody" transient or serializable.(¸È€İ8ûµ“´Ú1
+F
+java:S1948")Make "foodRed" transient or serializable.(¦’à8ûµ“´Ú1
+G
+java:S1948"*Make "foodBlue" transient or serializable.(„ŸŞ“8ûµ“´Ú1
+B
+java:S1948"%Make "map" transient or serializable.(¦Ø½Ë8ûµ“´Ú1
+N
+java:S1948",Make "currentMap" transient or serializable.(›»ªîúÿÿÿÿ8ûµ“´Ú1
+^	java:S125°"<This block of commented-out lines of code should be removed.(¯íìÎùÿÿÿÿ8ƒ¶“´Ú1
+Y	java:S125¹"<This block of commented-out lines of code should be removed.(ËÉÂà8„¶“´Ú1
+M	java:S106ô"+Replace this use of System.out by a logger.(Âºõ˜ıÿÿÿÿ8†¶“´Ú1
+M	java:S106ö"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8†¶“´Ú1
