@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        ISnakeMap snakeMap = RunnerFactory.getManager(1);
+        ISnakeMap snakeMap = MapsFactory.getManager(1);
 
 
         int boardWidth = snakeMap.getMap().length;

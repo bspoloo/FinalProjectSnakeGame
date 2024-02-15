@@ -31,7 +31,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     //random
     Random random = new Random();
     //game logic
-    Timer gameLoop;
+    static Timer gameLoop;
     // velocity
     int velocityX;
     int velocityY;
@@ -44,10 +44,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
     public SnakeGame(ISnakeMap snakeMap) {
 
+
+
         this.boardWidth = snakeMap.getMap().length * tileSize;
         this.boardHeight = snakeMap.getMap()[0].length * tileSize;
 
-        gameLoop = new Timer(100, this);
+
+        gameLoop = new Timer(120, this);
         windows = new Windows(gameLoop);
         windows.principalMenu();
 
@@ -63,27 +66,11 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         this.countOne = 0;
         this.countTwo = 0;
 
-
-        ISnakeMap snakeMap_1 = RunnerFactory.getManager(1);
-        ISnakeMap snakeMap_2 = RunnerFactory.getManager(2);
-//        ISnakeMap snakeMap_3 = RunnerFactory.getManager(3);
-//        ISnakeMap snakeMap_4 = RunnerFactory.getManager(4);
-//        ISnakeMap snakeMap_5 = RunnerFactory.getManager(5);
-//        ISnakeMap snakeMap_6 = RunnerFactory.getManager(6);
-//        ISnakeMap snakeMap_7 = RunnerFactory.getManager(7);
-//
-//
-//        setMapsToTree(4, arrayToMap(snakeMap_4.getMap()));
-        setMapsToTree(2, snakeMap_2);
-//        setMapsToTree(6, arrayToMap(snakeMap_6.getMap()));
-        setMapsToTree(1, snakeMap_1);
-//        setMapsToTree(3, arrayToMap(snakeMap_3.getMap()));
-//        setMapsToTree(5, arrayToMap(snakeMap_5.getMap()));
-//        setMapsToTree(7, arrayToMap(snakeMap_7.getMap()));
+        fillTree();
+        gameLoop.setDelay(120);
 
 
         this.currentMap = tree.getRoot();
-//        this.currentMap = tree.getNode(1).map;
         this.map = currentMap.map.getTileMap();
 
 
@@ -91,10 +78,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         foodTwo = currentMap.map.getFood2();
 
 
-
         printMap();
-
-
 
 
         velocityX = 0;
@@ -107,25 +91,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         draw(g);
     }
 
+    public static void setGameLoop(int delay) {
+        gameLoop.setDelay(delay);
+    }
+
     public void draw(Graphics g) {
 
-
-        if(countOne == 5){
-            this.currentMap = tree.getLeftNode(currentMap);
-            this.map = currentMap.map.getTileMap();
-            foodOne = currentMap.map.getFood1();
-            foodTwo = currentMap.map.getFood2();
-            countOne = 0;
-        }
-
-        if(countTwo == 5){
-            this.currentMap = tree.getRightNode(currentMap);
-            this.map = currentMap.map.getTileMap();
-            foodOne = currentMap.map.getFood1();
-            foodTwo = currentMap.map.getFood2();
-            countTwo = 0;
-
-        }
+        changeState();
 
         //Grid
         for (int i = 0; i < boardWidth / tileSize; i++) {
@@ -140,13 +112,10 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             }
         }
 
-
         //snake
         snakeHead.draw(g, tileSize);
 
-
         //food
-//        currentMap.food1.draw(g, tileSize);
         foodOne.draw(g, tileSize);
         foodTwo.draw(g, tileSize);
 
@@ -157,20 +126,12 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         }
 
         //score
-        g.setFont(new Font("Arial", Font.PLAIN, 16));
-        if (gameOver) {
-            g.setColor(Color.red);
-            g.drawString("Game Over - You loss", tileSize - 16, tileSize + 20);
-        } else {
-            g.drawString("Score: " + snakeBody.size(), tileSize - 16, tileSize + 20);
-        }
+        gameOverLoss(g);
     }
 
     public void placeFood(String type) {
         String name1 = foodOne.name;
         String name2 = foodTwo.name;
-
-
         do {
             if (type.equals(name1)) {
                 foodOne.x = random.nextInt(boardWidth / tileSize);
@@ -185,6 +146,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     public boolean collision(Tile tile1, Tile tile2) {
         return tile1.x == tile2.x && tile1.y == tile2.y;
     }
+
 
     public void move() {
 
@@ -229,17 +191,12 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
                 gameOver = true;
             }
         }
-
-//        map[snakeHead.y][snakeHead.x] = snakeHead;
-//        map[foodRed.y][foodRed.x] = foodRed;
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         move();
         repaint();
-        //printMap();
         if (gameOver) {
             gameLoop.stop();
         }
@@ -262,14 +219,66 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             velocityY = 0;
         }
     }
-    @Override
-    public void keyReleased(KeyEvent e) {
 
+    private void gameOverLoss(Graphics g) {
+        g.setFont(new Font("Arial", Font.PLAIN, 16));
+        if (gameOver) {
+            g.setColor(Color.red);
+            g.drawString("Game Over - You loss", tileSize - 16, tileSize + 20);
+
+            gameLoop.stop();
+
+        } else {
+            g.drawString("Score: " + snakeBody.size(), tileSize - 16, tileSize + 20);
+        }
     }
 
-    @Override
-    public void keyTyped(KeyEvent e) {
+    private void gameOverWin(Graphics g) {
+        g.setFont(new Font("Arial", Font.PLAIN, 16));
+        g.setColor(Color.green);
+        g.drawString("Game Over - You Win", tileSize - 30, tileSize + 20);
 
+        gameLoop.stop();
+    }
+
+
+    private void changeState() {
+
+        if (countOne == 5) {
+            this.currentMap = tree.getLeftNode(currentMap);
+
+            if(currentMap.isLeaf()){
+                gameOver = true;
+                gameOverWin(getGraphics());
+                return;
+            }
+
+            currentMap.map.speedBoost();
+            this.map = currentMap.map.getTileMap();
+            foodOne = currentMap.map.getFood1();
+            foodTwo = currentMap.map.getFood2();
+            countOne = 0;
+            countTwo = 0;
+        }
+
+        if (countTwo == 5) {
+            this.currentMap = tree.getRightNode(currentMap);
+
+            if(currentMap.isLeaf()){
+                gameOver = true;
+                gameOverWin(getGraphics());
+//                gameOverLoss(getGraphics());
+                return;
+            }
+
+            currentMap.map.speedBoost();
+            this.map = currentMap.map.getTileMap();
+            foodOne = currentMap.map.getFood1();
+            foodTwo = currentMap.map.getFood2();
+            countTwo = 0;
+            countOne = 0;
+
+        }
     }
 
     private void printMap() {
@@ -284,4 +293,33 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     private void setMapsToTree(int numState, ISnakeMap map){
         tree.insertMap(numState,map);
     }
+
+    private void fillTree(){
+        ISnakeMap snakeMap_4 = MapsFactory.getManager(4);
+        ISnakeMap snakeMap_2 = MapsFactory.getManager(2);
+        ISnakeMap snakeMap_6 = MapsFactory.getManager(6);
+        ISnakeMap snakeMap_1 = MapsFactory.getManager(1);
+        ISnakeMap snakeMap_3 = MapsFactory.getManager(3);
+        ISnakeMap snakeMap_5 = MapsFactory.getManager(5);
+        ISnakeMap snakeMap_7 = MapsFactory.getManager(7);
+
+        setMapsToTree(4, snakeMap_4);
+        setMapsToTree(2, snakeMap_2);
+        setMapsToTree(6, snakeMap_6);
+        setMapsToTree(1, snakeMap_1);
+        setMapsToTree(3, snakeMap_3);
+        setMapsToTree(5, snakeMap_5);
+        setMapsToTree(7, snakeMap_7);
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+
 }

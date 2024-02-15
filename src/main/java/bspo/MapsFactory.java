@@ -1,8 +1,10 @@
 package bspo;
 
 import bspo.arrays.Interfaces.ISnakeMap;
+import bspo.maps.*;
 
-public class RunnerFactory {
+
+public class MapsFactory {
     public static ISnakeMap getManager(int runnerID){
         switch (runnerID) {
             case 1:
@@ -10,15 +12,15 @@ public class RunnerFactory {
             case 2:
                 return new SnakeMap2();
             case 3:
-                return new NullMap();
+                return new SnakeMap3();
             case 4:
-                return new NullMap();
+                return new SnakeMap4();
             case 5:
-                return new NullMap();
+                return new SnakeMap5();
             case 6:
-                return new NullMap();
+                return new SnakeMap6();
             case 7:
-                return new NullMap();
+                return new SnakeMap7();
             case 8:
 
         }

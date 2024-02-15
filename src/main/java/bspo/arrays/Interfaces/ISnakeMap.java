@@ -1,5 +1,6 @@
 package bspo.arrays.Interfaces;
 
+import bspo.SnakeGame;
 import bspo.Tile;
 
 public interface ISnakeMap {
@@ -8,5 +9,7 @@ public interface ISnakeMap {
 
     Tile getFood1();
     Tile getFood2();
+
+    void speedBoost();
 
 }

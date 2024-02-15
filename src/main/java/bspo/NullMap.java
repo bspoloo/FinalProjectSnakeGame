@@ -22,4 +22,9 @@ public class NullMap implements ISnakeMap {
     public Tile getFood2() {
         return null;
     }
+
+    @Override
+    public void speedBoost() {
+
+    }
 }
