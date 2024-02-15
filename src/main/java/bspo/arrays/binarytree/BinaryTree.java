@@ -1,6 +1,8 @@
 package bspo.arrays.binarytree;
 
+import bspo.Tile;
 import bspo.arrays.Interfaces.IBinaryTree;
+import bspo.arrays.Interfaces.ISnakeMap;
 
 public class BinaryTree implements IBinaryTree {
     BTNode root;
@@ -13,10 +15,20 @@ public class BinaryTree implements IBinaryTree {
         root = new BTNode(data);
     }
 
+    public BinaryTree(int data, ISnakeMap map) {
+        root = new BTNode(data, map);
+    }
+
+    @Override
+    public void insertMap(int data, ISnakeMap map) {
+        root = insertMap(root, data, map);
+    }
+
     @Override
     public void insert(int data) {
         root = insert(root, data);
     }
+
 
     @Override
     public boolean search(int data) {
@@ -69,8 +81,21 @@ public class BinaryTree implements IBinaryTree {
         return size(root);
     }
 
-    private static BTNode insert(BTNode root, int data) {
+    private static BTNode insertMap(BTNode root, int data, ISnakeMap map) {
+        if (root == null) {
+            return new BTNode(data, map);
+        }
 
+        if(data < root.data) {
+            root.left = insertMap(root.left, data, map);
+        } else if(data > root.data) {
+            root.right = insertMap(root.right, data, map);
+        }
+
+        return root;
+    }
+
+    private static BTNode insert(BTNode root, int data) {
         if (root == null) {
             return new BTNode(data);
         }

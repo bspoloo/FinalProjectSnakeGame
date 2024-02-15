@@ -7,4 +7,19 @@ public class NullMap implements ISnakeMap {
     public String[][] getMap() {
         return new String[0][];
     }
+
+    @Override
+    public Tile[][] getTileMap() {
+        return new Tile[0][];
+    }
+
+    @Override
+    public Tile getFood1() {
+        return null;
+    }
+
+    @Override
+    public Tile getFood2() {
+        return null;
+    }
 }

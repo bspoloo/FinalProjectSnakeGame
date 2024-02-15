@@ -1,5 +1,6 @@
 package bspo.arrays.Interfaces;
 
+import bspo.Tile;
 import bspo.arrays.binarytree.BTNode;
 
 public interface IBinaryTree {
@@ -10,6 +11,7 @@ public interface IBinaryTree {
      */
     void insert(int data);
 
+    void insertMap(int data, ISnakeMap map);
     /**
      * Search for a node with the given data in the tree
      *

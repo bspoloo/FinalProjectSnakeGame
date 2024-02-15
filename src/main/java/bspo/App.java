@@ -1,5 +1,4 @@
 package bspo;
-import bspo.arrays.Interfaces.IRunner;
 import bspo.arrays.Interfaces.ISnakeMap;
 
 import javax.swing.*;

@@ -3,13 +3,33 @@ import javax.swing.*;
 
 import bspo.arrays.Interfaces.ISnakeMap;
 
+
 public class SnakeMap1 extends JPanel implements ISnakeMap{
 
     public int boardHeight;
     public int boardWidth;
+
+    @Override
+    public Tile getFood1() {
+        return food1;
+    }
+
+    @Override
+    public Tile getFood2() {
+        return food2;
+    }
+
+    private Tile food1;
+    private Tile food2;
+
+    public Tile[][] tailMap;
+
     public SnakeMap1(){
         this.boardWidth = getMap().length;
         this.boardHeight = getMap()[0].length;
+        this.food1 = new Tile(10, 10, "red");
+        this.food2 = new Tile(7, 8, "blue");
+        this.tailMap = arrayToMap(getMap());
     }
 
     @Override
@@ -40,6 +60,36 @@ public class SnakeMap1 extends JPanel implements ISnakeMap{
                 {"X", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "X"},
                 {"X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X"}
         };
+    }
+
+
+
+    @Override
+    public Tile[][] getTileMap() {
+        return tailMap;
+    }
+
+    private Tile[][] arrayToMap(String[][] map) {
+
+        int rows = map.length;
+        int columns = map[0].length;
+
+        Tile[][] maps = new Tile[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+
+            for (int j = 0; j < columns; j++) {
+                if (map[i][j].equals("X")) {
+                    Tile obstacle = new Tile(j, i, "X");
+                    maps[i][j] = obstacle;
+                } else if (map[i][j].equals("0")) {
+                    Tile spaceEmpty = new Tile(j, i, "0");
+                    maps[i][j] = spaceEmpty;
+                }
+            }
+
+        }
+        return maps;
     }
 }
 
