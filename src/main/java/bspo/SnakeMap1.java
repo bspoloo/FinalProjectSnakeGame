@@ -8,17 +8,6 @@ public class SnakeMap1 extends JPanel implements ISnakeMap{
 
     public int boardHeight;
     public int boardWidth;
-
-    @Override
-    public Tile getFood1() {
-        return food1;
-    }
-
-    @Override
-    public Tile getFood2() {
-        return food2;
-    }
-
     private Tile food1;
     private Tile food2;
 
@@ -62,7 +51,15 @@ public class SnakeMap1 extends JPanel implements ISnakeMap{
         };
     }
 
+    @Override
+    public Tile getFood1() {
+        return food1;
+    }
 
+    @Override
+    public Tile getFood2() {
+        return food2;
+    }
 
     @Override
     public Tile[][] getTileMap() {

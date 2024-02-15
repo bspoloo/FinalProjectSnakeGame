@@ -22,8 +22,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     //snake body
     ILinkedList<Tile> snakeBody;
     //food
-    Tile foodRed;
-    Tile foodBlue;
+    Tile foodOne;
+    Tile foodTwo;
     Tile[][] map;
     ISnakeMap currentMap;
     //random
@@ -52,12 +52,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         snakeBody = new LinkedList<>();
 
 
-//
-//        this.currentMap = snakeMap;
-//        this.map = arrayToMap(snakeMap.getMap());
-
-
-
         ISnakeMap snakeMap_1 = RunnerFactory.getManager(1);
         ISnakeMap snakeMap_2 = RunnerFactory.getManager(2);
 //        ISnakeMap snakeMap_3 = RunnerFactory.getManager(3);
@@ -76,15 +70,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 //        setMapsToTree(7, arrayToMap(snakeMap_7.getMap()));
 
 
-//        this.map = tree.getRoot().map;
-//        this.currentMap = tree.getRoot();
-//        this.currentMap = tree.getRoot().map;
-        this.currentMap = tree.getNode(1).map;
+        this.currentMap = tree.getRoot().map;
+//        this.currentMap = tree.getNode(1).map;
         this.map = currentMap.getTileMap();
 
 
-        foodRed = currentMap.getFood1();
-        foodBlue = currentMap.getFood2();
+        foodOne = currentMap.getFood1();
+        foodTwo = currentMap.getFood2();
 
 
 
@@ -124,8 +116,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
         //food
 //        currentMap.food1.draw(g, tileSize);
-        foodRed.draw(g, tileSize);
-        foodBlue.draw(g, tileSize);
+        foodOne.draw(g, tileSize);
+        foodTwo.draw(g, tileSize);
 
         // snake body
         for (int i = 0; i < snakeBody.size(); i++) {
@@ -144,16 +136,19 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     }
 
     public void placeFood(String type) {
+        String name1 = foodOne.name;
+        String name2 = foodTwo.name;
+
 
         do {
-            if (type.equals("red")) {
-                foodRed.x = random.nextInt(boardWidth / tileSize);
-                foodRed.y = random.nextInt(boardHeight / tileSize);
-            } else if (type.equals("blue")) {
-                foodBlue.x = random.nextInt(boardWidth / tileSize);
-                foodBlue.y = random.nextInt(boardHeight / tileSize);
+            if (type.equals(name1)) {
+                foodOne.x = random.nextInt(boardWidth / tileSize);
+                foodOne.y = random.nextInt(boardHeight / tileSize);
+            } else if (type.equals(name2)) {
+                foodTwo.x = random.nextInt(boardWidth / tileSize);
+                foodTwo.y = random.nextInt(boardHeight / tileSize);
             }
-        } while (map[foodRed.y][foodRed.x].name.equals("X") || map[foodBlue.y][foodBlue.x].name.equals("X"));
+        } while (map[foodOne.y][foodOne.x].name.equals("X") || map[foodTwo.y][foodTwo.x].name.equals("X"));
     }
 
     public boolean collision(Tile tile1, Tile tile2) {
@@ -165,13 +160,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         int newHeadX = snakeHead.x + velocityX;
         int newHeadY = snakeHead.y + velocityY;
 
-        if (collision(snakeHead, foodRed)) {
-            snakeBody.addLast(new Tile(foodRed.x, foodRed.y, foodRed.name));
-            placeFood("red");
+        if (collision(snakeHead, foodOne)) {
+            snakeBody.addLast(new Tile(foodOne.x, foodOne.y, foodOne.name));
+            placeFood(foodOne.name);
         }
-        if (collision(snakeHead, foodBlue)) {
-            snakeBody.addLast(new Tile(foodBlue.x, foodBlue.y, foodBlue.name));
-            placeFood("blue");
+        if (collision(snakeHead, foodTwo)) {
+            snakeBody.addLast(new Tile(foodTwo.x, foodTwo.y, foodTwo.name));
+            placeFood(foodTwo.name);
         }
 
         if (map[newHeadY][newHeadX].name.equals("X")) {
@@ -250,28 +245,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
     }
 
-    private Tile[][] arrayToMap(String[][] map) {
-
-        int rows = map.length;
-        int columns = map[0].length;
-
-        Tile[][] maps = new Tile[rows][columns];
-
-        for (int i = 0; i < rows; i++) {
-
-            for (int j = 0; j < columns; j++) {
-                if (map[i][j].equals("X")) {
-                    Tile obstacle = new Tile(j, i, "X");
-                    maps[i][j] = obstacle;
-                } else if (map[i][j].equals("0")) {
-                    Tile spaceEmpty = new Tile(j, i, "0");
-                    maps[i][j] = spaceEmpty;
-                }
-            }
-
-        }
-        return maps;
-    }
 
     private void printMap() {
         for (Tile[] fila : map) {
