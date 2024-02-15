@@ -15,17 +15,23 @@ public class Tile {
         this.name = name;
     }
     public void draw(Graphics g, int tileSize) {
-        if (name.equals("0")) {
-            return;
-        } else if (name.equals("X")) {
-            g.setColor(Color.cyan);
-        } else if (name.equals("head")) {
-            g.setColor(Color.green);
-        } else if (name.equals("red")) {
-            g.setColor(Color.red);
-        }else if (name.equals("blue")) {
-            g.setColor(Color.blue);
+        switch (name) {
+            case "0" -> {
+                return;
+            }
+            case "X" -> g.setColor(Color.cyan);
+            case "head" -> g.setColor(Color.green);
+            case "red" -> g.setColor(Color.red);
+            case "blue" -> g.setColor(Color.blue);
+            case "yellow" -> g.setColor(Color.yellow);
+            case "purple" -> g.setColor(Color.magenta);
+            case "orange" -> g.setColor(Color.orange);
+            case "pink" -> g.setColor(Color.pink);
+            case "black" -> g.setColor(Color.black);
+            case "white" -> g.setColor(Color.white);
+            case "gray" -> g.setColor(Color.gray);
         }
+
         g.fillRect(x * tileSize, y * tileSize, tileSize, tileSize);
     }
 }

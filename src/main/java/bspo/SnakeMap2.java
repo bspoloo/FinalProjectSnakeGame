@@ -32,4 +32,19 @@ public class SnakeMap2 implements ISnakeMap {
                 {"X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X"}
         };
     }
+
+    @Override
+    public Tile[][] getTileMap() {
+        return new Tile[0][];
+    }
+
+    @Override
+    public Tile getFood1() {
+        return null;
+    }
+
+    @Override
+    public Tile getFood2() {
+        return null;
+    }
 }

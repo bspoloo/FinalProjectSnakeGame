@@ -7,6 +7,7 @@ import bspo.arrays.Interfaces.ILinkedList;
 import bspo.arrays.Interfaces.ISnakeMap;
 import bspo.arrays.LinkedList.LinkedList;
 import bspo.arrays.LinkedList.Node;
+import bspo.arrays.binarytree.BinaryTree;
 
 import java.util.Random;
 import javax.swing.*;
@@ -33,6 +34,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     int velocityX;
     int velocityY;
     boolean gameOver = false;
+    BinaryTree tree = new BinaryTree();
+
 
     public SnakeGame(ISnakeMap snakeMap) {
 
@@ -48,12 +51,42 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         snakeHead = new Tile(5, 5, "head");
         snakeBody = new LinkedList<>();
 
-        foodRed = new Tile(10, 10, "red");
-        foodBlue = new Tile(7, 8, "blue");
+
+//
+//        this.currentMap = snakeMap;
+//        this.map = arrayToMap(snakeMap.getMap());
 
 
-        this.currentMap = snakeMap;
-        this.map = arrayToMap(snakeMap.getMap());
+
+        ISnakeMap snakeMap_1 = RunnerFactory.getManager(1);
+        ISnakeMap snakeMap_2 = RunnerFactory.getManager(2);
+//        ISnakeMap snakeMap_3 = RunnerFactory.getManager(3);
+//        ISnakeMap snakeMap_4 = RunnerFactory.getManager(4);
+//        ISnakeMap snakeMap_5 = RunnerFactory.getManager(5);
+//        ISnakeMap snakeMap_6 = RunnerFactory.getManager(6);
+//        ISnakeMap snakeMap_7 = RunnerFactory.getManager(7);
+//
+//
+//        setMapsToTree(4, arrayToMap(snakeMap_4.getMap()));
+        setMapsToTree(2, snakeMap_2);
+//        setMapsToTree(6, arrayToMap(snakeMap_6.getMap()));
+        setMapsToTree(1, snakeMap_1);
+//        setMapsToTree(3, arrayToMap(snakeMap_3.getMap()));
+//        setMapsToTree(5, arrayToMap(snakeMap_5.getMap()));
+//        setMapsToTree(7, arrayToMap(snakeMap_7.getMap()));
+
+
+//        this.map = tree.getRoot().map;
+//        this.currentMap = tree.getRoot();
+//        this.currentMap = tree.getRoot().map;
+        this.currentMap = tree.getNode(1).map;
+        this.map = currentMap.getTileMap();
+
+
+        foodRed = currentMap.getFood1();
+        foodBlue = currentMap.getFood2();
+
+
 
         printMap();
 
@@ -88,7 +121,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         //snake
         snakeHead.draw(g, tileSize);
 
+
         //food
+//        currentMap.food1.draw(g, tileSize);
         foodRed.draw(g, tileSize);
         foodBlue.draw(g, tileSize);
 
@@ -131,11 +166,11 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         int newHeadY = snakeHead.y + velocityY;
 
         if (collision(snakeHead, foodRed)) {
-            snakeBody.addLast(new Tile(foodRed.x, foodRed.y, "red"));
+            snakeBody.addLast(new Tile(foodRed.x, foodRed.y, foodRed.name));
             placeFood("red");
         }
         if (collision(snakeHead, foodBlue)) {
-            snakeBody.addLast(new Tile(foodBlue.x, foodBlue.y, "blue"));
+            snakeBody.addLast(new Tile(foodBlue.x, foodBlue.y, foodBlue.name));
             placeFood("blue");
         }
 
@@ -144,13 +179,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             return;
         }
 
-        for (int i = snakeBody.size() - 1; i >= 0; i--) {
+        for (int i = snakeBody.size() - 1 ; i >= 0; i--) {
             Node<Tile> snakePart = snakeBody.search(i);
             if (i == 0) {
                 snakePart.data.x = snakeHead.x;
                 snakePart.data.y = snakeHead.y;
             } else {
-                Node<Tile> prevSnakePart = snakeBody.search(i - 1);
+                Node<Tile> prevSnakePart = snakeBody.search(i-1);
                 snakePart.data.x = prevSnakePart.data.x;
                 snakePart.data.y = prevSnakePart.data.y;
             }
@@ -245,5 +280,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             }
             System.out.println();
         }
+    }
+
+    private void setMapsToTree(int numState, ISnakeMap map){
+        tree.insertMap(numState,map);
     }
 }
