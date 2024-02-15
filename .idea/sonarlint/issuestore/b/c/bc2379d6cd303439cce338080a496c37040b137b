@@ -1,5 +1,8 @@
 
 y
-java:S1104"WMake boardHeight a static final constant or non-public and provide accessors if needed.(Â£°ÿÿÿÿÿÿ8Œë«Ú1
+java:S1104	"WMake boardHeight a static final constant or non-public and provide accessors if needed.(Â£°ÿÿÿÿÿÿ8Œë«Ú1
 s
-java:S1104	"VMake boardWidth a static final constant or non-public and provide accessors if needed.(Â©ñ¯8¸¼ë«Ú1
+java:S1104
+"VMake boardWidth a static final constant or non-public and provide accessors if needed.(Â©ñ¯8¸¼ë«Ú1
+u
+java:S1104"SMake tailMap a static final constant or non-public and provide accessors if needed.(ïàóïüÿÿÿÿ8×¼›ÛÚ1

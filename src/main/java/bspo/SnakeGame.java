@@ -5,6 +5,7 @@ import java.awt.event.*;
 
 import bspo.arrays.Interfaces.ILinkedList;
 import bspo.arrays.Interfaces.ISnakeMap;
+import bspo.arrays.Interfaces.IWindows;
 import bspo.arrays.LinkedList.LinkedList;
 import bspo.arrays.LinkedList.Node;
 import bspo.arrays.binarytree.BTNode;
@@ -36,6 +37,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     int velocityY;
     boolean gameOver = false;
     BinaryTree tree = new BinaryTree();
+    IWindows windows;
 
     int countOne;
     int countTwo;
@@ -44,6 +46,10 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
         this.boardWidth = snakeMap.getMap().length * tileSize;
         this.boardHeight = snakeMap.getMap()[0].length * tileSize;
+
+        gameLoop = new Timer(100, this);
+        windows = new Windows(gameLoop);
+        windows.principalMenu();
 
         setPreferredSize(new Dimension(this.boardWidth, this.boardHeight));
         setBackground(Color.black);
@@ -88,8 +94,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
         printMap();
 
-        gameLoop = new Timer(100, this);
-        gameLoop.start();
+
+
 
         velocityX = 0;
         velocityY = 0;
@@ -222,12 +228,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             if (collision(snakeHead, snakePart.data)) {
                 gameOver = true;
             }
-
-            if (snakeHead.x * tileSize < 0 || snakeHead.x * tileSize > boardWidth || //passed left border or right border
-                snakeHead.y * tileSize < 0 || snakeHead.y * tileSize > boardHeight) { //passed top border or bottom border
-                gameOver = true;
-            }
-
         }
 
 //        map[snakeHead.y][snakeHead.x] = snakeHead;
@@ -262,16 +262,15 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             velocityY = 0;
         }
     }
-
     @Override
     public void keyReleased(KeyEvent e) {
+
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
-
 
     private void printMap() {
         for (Tile[] fila : map) {

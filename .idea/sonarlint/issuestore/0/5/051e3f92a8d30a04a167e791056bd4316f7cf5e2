@@ -1,21 +1,32 @@
 
+m	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò¶ø8Ş÷·ÛÚ1
+m	java:S117D"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ–´½8ß÷·ÛÚ1
 ¤
-java:S1186Ò"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8úµ“´Ú1
+java:S1186Š"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8–ùÍÛÚ1
 Ÿ
-java:S1186Ö"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8úµ“´Ú1
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8Ôù·ÛÚ1
 H
-java:S1948"+Make "snakeHead" transient or serializable.(åşÖÂ8ûµ“´Ú1
+java:S1948"+Make "snakeHead" transient or serializable.(åşÖÂ8Õù·ÛÚ1
 H
-java:S1948"+Make "snakeBody" transient or serializable.(¸È€İ8ûµ“´Ú1
+java:S1948"+Make "snakeBody" transient or serializable.(¸È€İ8Õù·ÛÚ1
 F
-java:S1948")Make "foodRed" transient or serializable.(¦’à8ûµ“´Ú1
-G
-java:S1948"*Make "foodBlue" transient or serializable.(„ŸŞ“8ûµ“´Ú1
+java:S1948")Make "foodOne" transient or serializable.(ø°¸ı8Õù·ÛÚ1
+K
+java:S1948")Make "foodTwo" transient or serializable.(ŠÒŸ‹ÿÿÿÿÿ8Õù·ÛÚ1
 B
-java:S1948"%Make "map" transient or serializable.(¦Ø½Ë8ûµ“´Ú1
-N
-java:S1948",Make "currentMap" transient or serializable.(›»ªîúÿÿÿÿ8ûµ“´Ú1
-^	java:S125°"<This block of commented-out lines of code should be removed.(¯íìÎùÿÿÿÿ8ƒ¶“´Ú1
-Y	java:S125¹"<This block of commented-out lines of code should be removed.(ËÉÂà8„¶“´Ú1
-M	java:S106ô"+Replace this use of System.out by a logger.(Âºõ˜ıÿÿÿÿ8†¶“´Ú1
-M	java:S106ö"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8†¶“´Ú1
+java:S1948"%Make "map" transient or serializable.(¦Ø½Ë8Õù·ÛÚ1
+I
+java:S1948",Make "currentMap" transient or serializable.(£áí©8Õù·ÛÚ1
+H
+java:S1948'"&Make "tree" transient or serializable.(‚–Éùÿÿÿÿ8Õù·ÛÚ1
+F
+java:S1948(")Make "windows" transient or serializable.(À£ã”8¢ã¸ÛÚ1
+]	java:S125E"<This block of commented-out lines of code should be removed.(Ò¸÷™ÿÿÿÿÿ8Ùù·ÛÚ1
+X	java:S125N"<This block of commented-out lines of code should be removed.( “İ¤8Ùù·ÛÚ1
+X	java:S125P"<This block of commented-out lines of code should be removed.(¡Æë8Ùù·ÛÚ1
+X	java:S125V"<This block of commented-out lines of code should be removed.(£ú8Ùù·ÛÚ1
+^	java:S125•"<This block of commented-out lines of code should be removed.(ÑÍĞºøÿÿÿÿ8Üù·ÛÚ1
+^	java:S125é"<This block of commented-out lines of code should be removed.(¯íìÎùÿÿÿÿ8âù·ÛÚ1
+Y	java:S125ò"<This block of commented-out lines of code should be removed.(ËÉÂà8âù·ÛÚ1
+M	java:S106–"+Replace this use of System.out by a logger.(Âºõ˜ıÿÿÿÿ8äù·ÛÚ1
+M	java:S106˜"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8äù·ÛÚ1

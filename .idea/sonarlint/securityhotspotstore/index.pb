@@ -35,3 +35,7 @@ Q
 !src/main/java/bspo/SnakeMap1.java,b\c\bc2379d6cd303439cce338080a496c37040b137b
 Q
 !src/main/java/bspo/SnakeMap2.java,3\d\3d54f51af7c85ab1a7e5845dbb872ff1ab055a7b
+b
+2src/main/java/bspo/arrays/Interfaces/IWindows.java,7\d\7dd979448dba207288779ea93e37bb09b173b760
+O
+src/main/java/bspo/Windows.java,3\1\31c467e335a7d8197f0056ed297854d740b5ec9f
