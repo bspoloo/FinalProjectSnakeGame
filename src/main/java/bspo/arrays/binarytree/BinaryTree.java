@@ -29,6 +29,21 @@ public class BinaryTree implements IBinaryTree {
         root = insert(root, data);
     }
 
+    public BTNode getLeftNode(BTNode node) {
+        if (node.left != null) {
+            return node.left;
+        } else {
+            return null;
+        }
+    }
+
+    public BTNode getRightNode(BTNode node) {
+        if (node.right != null) {
+            return node.right;
+        } else {
+            return null;
+        }
+    }
 
     @Override
     public boolean search(int data) {

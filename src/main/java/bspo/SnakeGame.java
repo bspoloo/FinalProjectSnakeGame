@@ -7,6 +7,7 @@ import bspo.arrays.Interfaces.ILinkedList;
 import bspo.arrays.Interfaces.ISnakeMap;
 import bspo.arrays.LinkedList.LinkedList;
 import bspo.arrays.LinkedList.Node;
+import bspo.arrays.binarytree.BTNode;
 import bspo.arrays.binarytree.BinaryTree;
 
 import java.util.Random;
@@ -25,7 +26,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     Tile foodOne;
     Tile foodTwo;
     Tile[][] map;
-    ISnakeMap currentMap;
+    BTNode currentMap;
     //random
     Random random = new Random();
     //game logic
@@ -36,6 +37,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     boolean gameOver = false;
     BinaryTree tree = new BinaryTree();
 
+    int countOne;
+    int countTwo;
 
     public SnakeGame(ISnakeMap snakeMap) {
 
@@ -50,6 +53,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
         snakeHead = new Tile(5, 5, "head");
         snakeBody = new LinkedList<>();
+
+        this.countOne = 0;
+        this.countTwo = 0;
 
 
         ISnakeMap snakeMap_1 = RunnerFactory.getManager(1);
@@ -70,13 +76,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 //        setMapsToTree(7, arrayToMap(snakeMap_7.getMap()));
 
 
-        this.currentMap = tree.getRoot().map;
+        this.currentMap = tree.getRoot();
 //        this.currentMap = tree.getNode(1).map;
-        this.map = currentMap.getTileMap();
+        this.map = currentMap.map.getTileMap();
 
 
-        foodOne = currentMap.getFood1();
-        foodTwo = currentMap.getFood2();
+        foodOne = currentMap.map.getFood1();
+        foodTwo = currentMap.map.getFood2();
 
 
 
@@ -96,6 +102,25 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     }
 
     public void draw(Graphics g) {
+
+
+        if(countOne == 5){
+            this.currentMap = tree.getLeftNode(currentMap);
+            this.map = currentMap.map.getTileMap();
+            foodOne = currentMap.map.getFood1();
+            foodTwo = currentMap.map.getFood2();
+            countOne = 0;
+        }
+
+        if(countTwo == 5){
+            this.currentMap = tree.getRightNode(currentMap);
+            this.map = currentMap.map.getTileMap();
+            foodOne = currentMap.map.getFood1();
+            foodTwo = currentMap.map.getFood2();
+            countTwo = 0;
+
+        }
+
         //Grid
         for (int i = 0; i < boardWidth / tileSize; i++) {
             g.drawLine(i * tileSize, 0, i * tileSize, boardHeight);
@@ -162,10 +187,12 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
         if (collision(snakeHead, foodOne)) {
             snakeBody.addLast(new Tile(foodOne.x, foodOne.y, foodOne.name));
+            countOne++;
             placeFood(foodOne.name);
         }
         if (collision(snakeHead, foodTwo)) {
             snakeBody.addLast(new Tile(foodTwo.x, foodTwo.y, foodTwo.name));
+            countTwo++;
             placeFood(foodTwo.name);
         }
 
