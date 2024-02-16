@@ -1,32 +1,36 @@
 
-m	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ò¶ø8Ş÷·ÛÚ1
-m	java:S117D"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ–´½8ß÷·ÛÚ1
+s	java:S117¬"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶÷¦ÿÿÿÿÿ8¨‰„ûÚ1
+n	java:S117­"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çäŸ§8Ç‡òúÚ1
+s	java:S117®"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„×é€øÿÿÿÿ8©‰„ûÚ1
+s	java:S117¯"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰îÀàûÿÿÿÿ8©‰„ûÚ1
+s	java:S117°"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Åøéîøÿÿÿÿ8©‰„ûÚ1
+n	java:S117±"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À­ßÄ8ª‰„ûÚ1
+s	java:S117²"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿®ÒÒûÿÿÿÿ8ª‰„ûÚ1
 ¤
-java:S1186Š"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8–ùÍÛÚ1
+java:S1186½"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(˜Â½€øÿÿÿÿ8ÓˆòúÚ1
 Ÿ
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8Ôù·ÛÚ1
+java:S1186Â"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷—8ÓˆòúÚ1
 H
-java:S1948"+Make "snakeHead" transient or serializable.(åşÖÂ8Õù·ÛÚ1
+java:S1948"+Make "snakeHead" transient or serializable.(åşÖÂ8ÕˆòúÚ1
 H
-java:S1948"+Make "snakeBody" transient or serializable.(¸È€İ8Õù·ÛÚ1
+java:S1948"+Make "snakeBody" transient or serializable.(¸È€İ8ÕˆòúÚ1
 F
-java:S1948")Make "foodOne" transient or serializable.(ø°¸ı8Õù·ÛÚ1
+java:S1948")Make "foodOne" transient or serializable.(ø°¸ı8ÕˆòúÚ1
 K
-java:S1948")Make "foodTwo" transient or serializable.(ŠÒŸ‹ÿÿÿÿÿ8Õù·ÛÚ1
+java:S1948")Make "foodTwo" transient or serializable.(ŠÒŸ‹ÿÿÿÿÿ8ÕˆòúÚ1
 B
-java:S1948"%Make "map" transient or serializable.(¦Ø½Ë8Õù·ÛÚ1
+java:S1948"%Make "map" transient or serializable.(¦Ø½Ë8ÕˆòúÚ1
 I
-java:S1948",Make "currentMap" transient or serializable.(£áí©8Õù·ÛÚ1
+java:S1948",Make "currentMap" transient or serializable.(£áí©8ÕˆòúÚ1
 H
-java:S1948'"&Make "tree" transient or serializable.(‚–Éùÿÿÿÿ8Õù·ÛÚ1
+java:S1948'"&Make "tree" transient or serializable.(‚–Éùÿÿÿÿ8ÕˆòúÚ1
 F
-java:S1948(")Make "windows" transient or serializable.(À£ã”8¢ã¸ÛÚ1
-]	java:S125E"<This block of commented-out lines of code should be removed.(Ò¸÷™ÿÿÿÿÿ8Ùù·ÛÚ1
-X	java:S125N"<This block of commented-out lines of code should be removed.( “İ¤8Ùù·ÛÚ1
-X	java:S125P"<This block of commented-out lines of code should be removed.(¡Æë8Ùù·ÛÚ1
-X	java:S125V"<This block of commented-out lines of code should be removed.(£ú8Ùù·ÛÚ1
-^	java:S125•"<This block of commented-out lines of code should be removed.(ÑÍĞºøÿÿÿÿ8Üù·ÛÚ1
-^	java:S125é"<This block of commented-out lines of code should be removed.(¯íìÎùÿÿÿÿ8âù·ÛÚ1
-Y	java:S125ò"<This block of commented-out lines of code should be removed.(ËÉÂà8âù·ÛÚ1
-M	java:S106–"+Replace this use of System.out by a logger.(Âºõ˜ıÿÿÿÿ8äù·ÛÚ1
-M	java:S106˜"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8äù·ÛÚ1
+java:S1948(")Make "windows" transient or serializable.(À£ã”8ÕˆòúÚ1
+G
+java:S30105"%Remove this assignment of "gameLoop".(†™·Õúÿÿÿÿ8ÙˆòúÚ1
+Y	java:S125ı"<This block of commented-out lines of code should be removed.(ìñóš8èˆòúÚ1
+Y	java:S125"<This block of commented-out lines of code should be removed.(ìñóš8éˆòúÚ1
+M	java:S106¡"+Replace this use of System.out by a logger.(Âºõ˜ıÿÿÿÿ8êˆòúÚ1
+M	java:S106£"+Replace this use of System.out by a logger.(ªÓ¼áşÿÿÿÿ8êˆòúÚ1
+N
+java:S1144ì"0Remove this unused private "gameOverWin" method.(Œù¡8íˆòúÚ1

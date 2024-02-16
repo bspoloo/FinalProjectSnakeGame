@@ -248,8 +248,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             this.currentMap = tree.getLeftNode(currentMap);
 
             if(currentMap.isLeaf()){
+                windows.message("You Loss");
                 gameOver = true;
-                gameOverWin(getGraphics());
+//                gameOverWin(getGraphics());
                 return;
             }
 
@@ -265,8 +266,9 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             this.currentMap = tree.getRightNode(currentMap);
 
             if(currentMap.isLeaf()){
+                windows.message("You Win");
                 gameOver = true;
-                gameOverWin(getGraphics());
+//                gameOverWin(getGraphics());
 //                gameOverLoss(getGraphics());
                 return;
             }
