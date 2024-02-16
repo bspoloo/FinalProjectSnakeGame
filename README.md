@@ -1,4 +1,4 @@
-## SNAKE GAME FINAL PROJECT ABOUT DATA STRUCTURE MODULE THREE
+## FINAL PROJECT OF THE SNAKE GAME ON DATA STRUCTURE MODULE THREE
 
 In this project, the game of Snake was used as an example to apply the data structures learned during the data structures module. The following data structures were utilized:
 

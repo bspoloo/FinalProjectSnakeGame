@@ -163,10 +163,10 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             placeFood(foodTwo.name);
         }
 
-        if (map[newHeadY][newHeadX].name.equals("X")) {
-            gameOver = true;
-            return;
-        }
+//        if (map[newHeadY][newHeadX].name.equals("X")) {
+//            gameOver = true;
+//            return;
+//        }
 
         for (int i = snakeBody.size() - 1; i >= 0; i--) {
             Node<Tile> snakePart = snakeBody.search(i);
