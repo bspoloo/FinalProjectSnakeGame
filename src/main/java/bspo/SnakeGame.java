@@ -248,7 +248,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             this.currentMap = tree.getLeftNode(currentMap);
 
             if(currentMap.isLeaf()){
-                gameOver = true;
+//                gameOver = true;
                 gameOverWin(getGraphics());
                 return;
             }
@@ -302,14 +302,27 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         ISnakeMap snakeMap_3 = MapsFactory.getManager(3);
         ISnakeMap snakeMap_5 = MapsFactory.getManager(5);
         ISnakeMap snakeMap_7 = MapsFactory.getManager(7);
+        ISnakeMap winMap = MapsFactory.getManager(8);
+        ISnakeMap lossMap = MapsFactory.getManager(9);
 
-        setMapsToTree(4, snakeMap_4);
-        setMapsToTree(2, snakeMap_2);
-        setMapsToTree(6, snakeMap_6);
-        setMapsToTree(1, snakeMap_1);
-        setMapsToTree(3, snakeMap_3);
-        setMapsToTree(5, snakeMap_5);
-        setMapsToTree(7, snakeMap_7);
+//        setMapsToTree(1, winMap);
+
+        setMapsToTree(8, snakeMap_4);
+        setMapsToTree(4, snakeMap_2);
+        setMapsToTree(12, snakeMap_6);
+        setMapsToTree(2, snakeMap_1);
+        setMapsToTree(6, snakeMap_3);
+        setMapsToTree(10, snakeMap_5);
+        setMapsToTree(14, snakeMap_7);
+        setMapsToTree(1, lossMap);
+        setMapsToTree(3, winMap);
+        setMapsToTree(5, lossMap);
+        setMapsToTree(7, winMap);
+        setMapsToTree(9, lossMap);
+        setMapsToTree(11, winMap);
+        setMapsToTree(13, lossMap);
+        setMapsToTree(15, winMap);
+
     }
     @Override
     public void keyReleased(KeyEvent e) {

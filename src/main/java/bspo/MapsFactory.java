@@ -22,7 +22,9 @@ public class MapsFactory {
             case 7:
                 return new SnakeMap7();
             case 8:
-
+                return new WinMap();
+            case 9:
+                return new LossMap();
         }
         return null;
 

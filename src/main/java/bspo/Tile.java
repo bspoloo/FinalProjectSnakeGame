@@ -20,6 +20,8 @@ public class Tile {
                 return;
             }
             case "X" -> g.setColor(Color.cyan);
+            case "W" -> g.setColor(Color.green);
+            case "L" -> g.setColor(Color.red);
             case "head" -> g.setColor(Color.green);
             case "red" -> g.setColor(Color.red);
             case "blue" -> g.setColor(Color.blue);
