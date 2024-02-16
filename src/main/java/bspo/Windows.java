@@ -51,7 +51,7 @@ public class Windows implements IWindows {
 
 
         buttonRestart.setPreferredSize(new Dimension(100, 50));
-        buttonRestart.setBackground(Color.BLUE);
+        buttonRestart.setBackground(Color.PINK);
 
         buttonRestart.addActionListener(e -> {
             gameLoop.restart();

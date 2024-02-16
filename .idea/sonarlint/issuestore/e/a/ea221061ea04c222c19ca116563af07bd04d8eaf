@@ -1,0 +1,13 @@
+
+r
+java:S1104"WMake boardHeight a static final constant or non-public and provide accessors if needed.(Â£°ÿÿÿÿÿÿ
+l
+java:S1104"VMake boardWidth a static final constant or non-public and provide accessors if needed.(Â©ñ¯
+n
+java:S1104"SMake tailMap a static final constant or non-public and provide accessors if needed.(ïàóïüÿÿÿÿ
+B
+java:S1948"'Make "food1" transient or serializable.(Ë’¤¢úÿÿÿÿ
+B
+java:S1948"'Make "food2" transient or serializable.(öŸì–üÿÿÿÿ
+D
+java:S1948")Make "tailMap" transient or serializable.(ïàóïüÿÿÿÿ

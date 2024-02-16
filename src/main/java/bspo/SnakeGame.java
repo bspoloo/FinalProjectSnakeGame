@@ -45,7 +45,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
     public SnakeGame(ISnakeMap snakeMap) {
 
 
-
         this.boardWidth = snakeMap.getMap().length * tileSize;
         this.boardHeight = snakeMap.getMap()[0].length * tileSize;
 
@@ -169,13 +168,13 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             return;
         }
 
-        for (int i = snakeBody.size() - 1 ; i >= 0; i--) {
+        for (int i = snakeBody.size() - 1; i >= 0; i--) {
             Node<Tile> snakePart = snakeBody.search(i);
             if (i == 0) {
                 snakePart.data.x = snakeHead.x;
                 snakePart.data.y = snakeHead.y;
             } else {
-                Node<Tile> prevSnakePart = snakeBody.search(i-1);
+                Node<Tile> prevSnakePart = snakeBody.search(i - 1);
                 snakePart.data.x = prevSnakePart.data.x;
                 snakePart.data.y = prevSnakePart.data.y;
             }
@@ -250,6 +249,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
             if(currentMap.isLeaf()){
 //                gameOver = true;
                 gameOverWin(getGraphics());
+
                 return;
             }
 
@@ -264,9 +264,10 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         if (countTwo == 5) {
             this.currentMap = tree.getRightNode(currentMap);
 
-            if(currentMap.isLeaf()){
+            if (currentMap.isLeaf()) {
+                windows.message("You Win");
                 gameOver = true;
-                gameOverWin(getGraphics());
+//                gameOverWin(getGraphics());
 //                gameOverLoss(getGraphics());
                 return;
             }
@@ -290,11 +291,11 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         }
     }
 
-    private void setMapsToTree(int numState, ISnakeMap map){
-        tree.insertMap(numState,map);
+    private void setMapsToTree(int numState, ISnakeMap map) {
+        tree.insertMap(numState, map);
     }
 
-    private void fillTree(){
+    private void fillTree() {
         ISnakeMap snakeMap_4 = MapsFactory.getManager(4);
         ISnakeMap snakeMap_2 = MapsFactory.getManager(2);
         ISnakeMap snakeMap_6 = MapsFactory.getManager(6);
@@ -324,6 +325,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         setMapsToTree(15, winMap);
 
     }
+
     @Override
     public void keyReleased(KeyEvent e) {
 
