@@ -246,15 +246,12 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         if (countOne == 5) {
             this.currentMap = tree.getLeftNode(currentMap);
 
-            if(currentMap.isLeaf()){
-//                gameOver = true;
-                gameOverWin(getGraphics());
-
-                return;
-            }
-
             currentMap.map.speedBoost();
             this.map = currentMap.map.getTileMap();
+            if(currentMap.isLeaf()){
+                gameLoop.stop();
+//                return;
+            }
             foodOne = currentMap.map.getFood1();
             foodTwo = currentMap.map.getFood2();
             countOne = 0;
@@ -263,17 +260,14 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
         if (countTwo == 5) {
             this.currentMap = tree.getRightNode(currentMap);
-
-            if (currentMap.isLeaf()) {
-                windows.message("You Win");
-                gameOver = true;
-//                gameOverWin(getGraphics());
-//                gameOverLoss(getGraphics());
-                return;
-            }
-
             currentMap.map.speedBoost();
             this.map = currentMap.map.getTileMap();
+
+            if (currentMap.isLeaf()) {
+                gameLoop.stop();
+//                return;
+            }
+
             foodOne = currentMap.map.getFood1();
             foodTwo = currentMap.map.getFood2();
             countTwo = 0;
@@ -306,7 +300,6 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
         ISnakeMap winMap = MapsFactory.getManager(8);
         ISnakeMap lossMap = MapsFactory.getManager(9);
 
-//        setMapsToTree(1, winMap);
 
         setMapsToTree(8, snakeMap_4);
         setMapsToTree(4, snakeMap_2);

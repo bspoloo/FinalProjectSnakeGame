@@ -61,7 +61,7 @@ public class SnakeMap5 extends JPanel implements ISnakeMap{
 
     @Override
     public void speedBoost() {
-        SnakeGame.setGameLoop(60);
+        SnakeGame.setGameLoop(100);
     }
 
     @Override
